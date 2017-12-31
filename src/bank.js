@@ -8,6 +8,9 @@ Bank.prototype.currentBalance = function () {
 };
 
 Bank.prototype.deposit = function (amount, date) {
+  if (this._history.length > 0 && Date.parse(date) < Date.parse(this._history[this._history.length - 1].date)) {
+    throw new Error("Date must be on or after " + this._history[this._history.length - 1].date);
+  }
   this._currentBalance += amount;
   this._recordTransaction(date, 'deposit', amount);
 };
