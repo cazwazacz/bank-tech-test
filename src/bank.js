@@ -1,5 +1,6 @@
 function Bank() {
   this._currentBalance = 0;
+  this._history = [];
 }
 
 Bank.prototype.currentBalance = function () {
@@ -8,8 +9,14 @@ Bank.prototype.currentBalance = function () {
 
 Bank.prototype.deposit = function (amount, date) {
   this._currentBalance += amount;
+  this._recordTransaction(date, 'deposit', amount);
 };
 
 Bank.prototype.withdraw = function (amount, date) {
   this._currentBalance -= amount;
+  this._recordTransaction(date, 'withdrawal', amount);
+};
+
+Bank.prototype._recordTransaction = function (date, type, amount) {
+  this._history.push({date: date, transactionType: type, amount: amount, balance: this._currentBalance});
 };
