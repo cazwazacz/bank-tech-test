@@ -5,3 +5,7 @@ function Bank() {
 Bank.prototype.currentBalance = function () {
   return this._currentBalance;
 };
+
+Bank.prototype.deposit = function (amount, date) {
+  this._currentBalance += amount;
+};

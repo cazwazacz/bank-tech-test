@@ -16,4 +16,11 @@ describe("Infrastructure", function() {
     })
   })
 
+  describe("Depositing money", function() {
+    it("increments the current balance", function() {
+      bank.deposit(1000, '10-01-2012');
+      expect(bank.currentBalance()).toEqual(1000);
+    })
+  })
+
 })
