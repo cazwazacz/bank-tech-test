@@ -33,6 +33,11 @@ describe("Infrastructure", function() {
       bank.withdraw(700, '11-01-2012');
       expect(bank.currentBalance()).toEqual(300);
     })
+
+    it("throws error when trying to withdraw more money than in account", function() {
+      bank.deposit(1000, '10-01-2012');
+      expect( function(){ bank.withdraw(1100, '11-01-2012'); } ).toThrow(new Error("Insufficient funds! Current balance is: 1000"));
+    })
   })
 
   describe("Recording transaction history", function() {

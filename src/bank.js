@@ -13,6 +13,9 @@ Bank.prototype.deposit = function (amount, date) {
 };
 
 Bank.prototype.withdraw = function (amount, date) {
+  if (amount > this._currentBalance) {
+    throw new Error('Insufficient funds! Current balance is: ' + this._currentBalance);
+  };
   this._currentBalance -= amount;
   this._recordTransaction(date, 'withdrawal', amount);
 };
