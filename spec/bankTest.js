@@ -2,8 +2,13 @@ describe("Infrastructure", function() {
 
   var bank;
 
+  function PrinterDouble() {};
+  PrinterDouble.prototype.print = function () {
+    return "date || credit || debit || balance";
+  };
+
   beforeEach(function() {
-    bank = new Bank(Printer);
+    bank = new Bank(PrinterDouble);
   })
 
   describe("Creating a new bank", function() {
