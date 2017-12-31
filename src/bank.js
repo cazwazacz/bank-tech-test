@@ -9,3 +9,7 @@ Bank.prototype.currentBalance = function () {
 Bank.prototype.deposit = function (amount, date) {
   this._currentBalance += amount;
 };
+
+Bank.prototype.withdraw = function (amount, date) {
+  this._currentBalance -= amount;
+};
