@@ -1,6 +1,7 @@
-function Bank() {
+function Bank(printer) {
   this._currentBalance = 0;
   this._history = [];
+  this._printer = new printer;
 }
 
 Bank.prototype.currentBalance = function () {
@@ -18,6 +19,10 @@ Bank.prototype.withdraw = function (amount, date) {
   this._isDateValid(date);
   this._currentBalance -= amount;
   this._recordTransaction(date, 'withdrawal', amount);
+};
+
+Bank.prototype.print = function () {
+  return this._printer.print(this._history);
 };
 
 Bank.prototype._recordTransaction = function (date, type, amount) {

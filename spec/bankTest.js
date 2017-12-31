@@ -3,7 +3,7 @@ describe("Infrastructure", function() {
   var bank;
 
   beforeEach(function() {
-    bank = new Bank();
+    bank = new Bank(Printer);
   })
 
   describe("Creating a new bank", function() {
@@ -63,6 +63,13 @@ describe("Infrastructure", function() {
         {date: '13-01-2012', transactionType: 'deposit', amount: 2000, balance: 2200},
       ]
       expect(bank._history).toEqual(array);
+    })
+  })
+
+  describe("Printing", function() {
+    it("tells printer to print", function() {
+      var string = "date || credit || debit || balance";
+      expect(bank.print()).toEqual(string);
     })
   })
 
