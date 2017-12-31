@@ -15,6 +15,7 @@ Bank.prototype.deposit = function (amount, date) {
 
 Bank.prototype.withdraw = function (amount, date) {
   this._areFundsSufficient(amount);
+  this._isDateValid(date);
   this._currentBalance -= amount;
   this._recordTransaction(date, 'withdrawal', amount);
 };
