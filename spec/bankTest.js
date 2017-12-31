@@ -28,7 +28,7 @@ describe("Infrastructure", function() {
   })
 
   describe("Withdrawing money", function() {
-    it("descrements the current balance by withdrawal amount", function() {
+    it("decrements the current balance by withdrawal amount", function() {
       bank.deposit(1000, '10-01-2012');
       bank.withdraw(700, '11-01-2012');
       expect(bank.currentBalance()).toEqual(300);
