@@ -47,7 +47,6 @@ describe("Infrastructure", function() {
         {date: '12-01-2012', transactionType: 'withdrawal', amount: 100, balance: 200},
         {date: '13-01-2012', transactionType: 'deposit', amount: 2000, balance: 2200},
       ]
-      console.log(bank._history);
       expect(bank._history).toEqual(array);
     })
   })
