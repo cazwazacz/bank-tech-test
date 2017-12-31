@@ -3,7 +3,7 @@ describe("Infrastructure", function() {
   var bank;
 
   beforeEach(function() {
-    bank = new Bank;
+    bank = new Bank();
   })
 
   describe("Creating a new bank", function() {
