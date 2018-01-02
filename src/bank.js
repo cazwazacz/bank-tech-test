@@ -1,7 +1,7 @@
-function Bank(printer) {
+function Bank(printer, history) {
   this._currentBalance = 0;
-  this._history = [];
   this._printer = new printer;
+  this._history = new history;
 }
 
 Bank.prototype.currentBalance = function () {
@@ -11,22 +11,18 @@ Bank.prototype.currentBalance = function () {
 Bank.prototype.deposit = function (amount, date) {
   this._isDateValid(date);
   this._currentBalance += amount;
-  this._recordTransaction(date, 'deposit', amount);
+  this._history.recordTransaction(date, 'deposit', amount, this._currentBalance);
 };
 
 Bank.prototype.withdraw = function (amount, date) {
   this._areFundsSufficient(amount);
   this._isDateValid(date);
   this._currentBalance -= amount;
-  this._recordTransaction(date, 'withdrawal', amount);
+  this._history.recordTransaction(date, 'withdrawal', amount, this._currentBalance);
 };
 
 Bank.prototype.print = function () {
-  return this._printer.print(this._history);
-};
-
-Bank.prototype._recordTransaction = function (date, type, amount) {
-  this._history.push({date: date, transactionType: type, amount: amount, balance: this._currentBalance});
+  return this._printer.print(this._history.show());
 };
 
 Bank.prototype._areFundsSufficient = function (amount) {
@@ -36,7 +32,7 @@ Bank.prototype._areFundsSufficient = function (amount) {
 };
 
 Bank.prototype._isDateValid = function (date) {
-  if (this._history.length > 0 && Date.parse(date) < Date.parse(this._history[this._history.length - 1].date)) {
-    throw new Error("Date must be on or after " + this._history[this._history.length - 1].date);
+  if (this._history.show().length > 0 && Date.parse(date) < Date.parse(this._history.show()[this._history.show().length - 1].date)) {
+    throw new Error("Date must be on or after " + this._history.show()[this._history.show().length - 1].date);
   }
 };
