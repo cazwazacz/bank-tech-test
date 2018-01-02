@@ -1,7 +1,7 @@
 # Bank tech test
 
 ### Approach
-To start with, I thought about the main objects I would need for the program. I settled with two initially. a) a Bank object, which would handle the balance, deposits, withdrawals and recording the transaction history and b) a Printer object which would handle taking the transaction history and printing it out as a table. I thought each account would be represented as a new instance of Bank. In terms of error handling, the two I thought I could expect were a) trying to withdraw more money than the current balance and b) trying to make a transaction on a date that was earlier than the last transaction.
+To start with, I thought about the main objects I would need for the program. I settled with two initially. a) a Bank object, which would handle the balance, deposits, withdrawals and recording the transaction history and b) a Printer object which would handle taking the transaction history and printing it out as a table. I thought each account would be represented as a new instance of Bank. In terms of error handling, the one I thought to expect was the withdrawal of more money than was currently in the bank.
 
 ### Structure
 I started with the aforementioned two objects and then concluded that the history of transactions warranted its own object. Thus, the program has three objects:
@@ -22,15 +22,20 @@ Create a new bank, passing Printer and History
 ```javascript
 var bank = new Bank(Printer, History);
 ```
-To deposit and withdraw money, pass in the amount and date in MM-DD-YYYY format
+To deposit and withdraw money, pass in the amount
 ```javascript
-bank.deposit(4000, '11-11-2011');
-bank.widthraw(2000, '12-11-2011');
+bank.deposit(4000);
+bank.withdraw(2000);
 ```
 To print out the statement
 ```javascript
 bank.printStatement();
 ```
-Errors are thrown when trying to withdraw more money than the current balance and when trying to make a transaction on a date earlier than the last transaction.
+Errors are thrown when trying to withdraw more money than the current balance.
 
-![img](/img/screenshot.png)
+To run tests
+```
+$ open SpecRunner.html
+```
+
+![img](/img/screenshot1.png)
