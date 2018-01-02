@@ -1,4 +1,4 @@
-describe("Infrastructure", function() {
+describe("Bank", function() {
 
   var bank;
 
