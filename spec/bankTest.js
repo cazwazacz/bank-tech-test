@@ -27,11 +27,6 @@ describe("Infrastructure", function() {
       bank.deposit(1000, '10-01-2012');
       expect(bank.currentBalance()).toEqual(1000);
     })
-
-    it("throws error when trying to deposit money on a date before the last transaction", function() {
-      bank.deposit(1000, '10-01-2012');
-      expect( function(){ bank.deposit(1000, '09-01-2012'); } ).toThrow(new Error("Date must be on or after 10-01-2012"));
-    })
   })
 
   describe("Withdrawing money", function() {
@@ -44,11 +39,6 @@ describe("Infrastructure", function() {
     it("throws error when trying to withdraw more money than in account", function() {
       bank.deposit(1000, '10-01-2012');
       expect( function(){ bank.withdraw(1100, '11-01-2012'); } ).toThrow(new Error("Insufficient funds! Current balance is: 1000"));
-    })
-
-    it("throws error when trying to withdraw money on a date before the last transaction", function() {
-      bank.deposit(1000, '10-01-2012');
-      expect( function(){ bank.withdraw(900, '08-01-2012'); } ).toThrow(new Error("Date must be on or after 10-01-2012"));
     })
   })
 
