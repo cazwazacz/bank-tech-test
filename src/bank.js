@@ -19,7 +19,7 @@ Bank.prototype.withdraw = function (amount, date) {
   this._currentBalance -= amount;
 };
 
-Bank.prototype.print = function () {
+Bank.prototype.printStatement = function () {
   return this._printer.print(this._history.show());
 };
 

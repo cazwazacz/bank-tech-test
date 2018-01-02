@@ -48,7 +48,7 @@ describe("Bank", function() {
   describe("Printing", function() {
     it("tells printer to print", function() {
       var string = "date || credit || debit || balance";
-      expect(bank.print()).toEqual(string);
+      expect(bank.printStatement()).toEqual(string);
     })
   })
 
