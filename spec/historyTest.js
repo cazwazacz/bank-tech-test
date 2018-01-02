@@ -20,9 +20,4 @@ describe("History", function() {
     ]
     expect(history.show()).toEqual(array);
   })
-
-  it("throws error when trying to make a transaction on a date before the last transaction", function() {
-    history.recordTransaction('10-01-2012', 'deposit', 1000, 1000);
-    expect( function(){ history.recordTransaction('09-01-2012', 'deposit', 1000, 1000); } ).toThrow(new Error("Date must be on or after 10-01-2012"));
-  })
 })

@@ -27,15 +27,15 @@ describe("Bank", function() {
 
   describe("Depositing money", function() {
     it("increments the current balance by deposit amount", function() {
-      bank.deposit(1000, '10-01-2012');
+      bank.deposit(1000);
       expect(bank.currentBalance()).toEqual(1000);
     })
   })
 
   describe("Withdrawing money", function() {
     it("decrements the current balance by withdrawal amount", function() {
-      bank.deposit(1000, '10-01-2012');
-      bank.withdraw(700, '11-01-2012');
+      bank.deposit(1000);
+      bank.withdraw(700);
       expect(bank.currentBalance()).toEqual(300);
     })
 
