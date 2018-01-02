@@ -19,7 +19,6 @@ describe("Bank", function() {
     it("has an initial balance of zero", function() {
       expect(bank.currentBalance()).toEqual(0);
     })
-
   })
 
   describe("Depositing money", function() {
