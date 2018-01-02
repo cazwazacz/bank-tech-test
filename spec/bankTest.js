@@ -7,8 +7,12 @@ describe("Bank", function() {
     return "date || credit || debit || balance";
   };
 
+  function HistoryDouble() {};
+  HistoryDouble.prototype.show = function () { return []; };
+  HistoryDouble.prototype.recordTransaction = function () {};
+
   beforeEach(function() {
-    bank = new Bank(PrinterDouble, History);
+    bank = new Bank(PrinterDouble, HistoryDouble);
   })
 
   describe("Creating a new bank", function() {
