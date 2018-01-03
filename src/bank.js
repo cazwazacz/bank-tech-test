@@ -1,7 +1,8 @@
-function Bank(printer, history) {
+function Bank(printer, history, dateObject) {
   this._currentBalance = 0;
   this._printer = new printer;
   this._history = new history;
+  this._dateObject = dateObject;
 }
 
 Bank.prototype.currentBalance = function () {
@@ -30,6 +31,6 @@ Bank.prototype._areFundsSufficient = function (amount) {
 };
 
 Bank.prototype._date = function () {
-  var date = new Date();
+  var date = new this._dateObject();
   return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
 };

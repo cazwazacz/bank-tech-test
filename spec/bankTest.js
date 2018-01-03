@@ -1,6 +1,6 @@
 describe("Bank", function() {
 
-  var bank;
+  var bank, dateInstance;
 
   function PrinterDouble() {};
   PrinterDouble.prototype.print = function () {
@@ -12,7 +12,9 @@ describe("Bank", function() {
   HistoryDouble.prototype.recordTransaction = function () {};
 
   beforeEach(function() {
-    bank = new Bank(PrinterDouble, HistoryDouble);
+    dateInstance = jasmine.createSpyObj("dateInstnace", ["getDate", "getMonth", "getFullYear"]);
+    function DateDouble() { return dateInstance; };
+    bank = new Bank(PrinterDouble, HistoryDouble, DateDouble);
   })
 
   describe("Creating a new bank", function() {
@@ -40,8 +42,8 @@ describe("Bank", function() {
     })
 
     it("throws error when trying to withdraw more money than in account", function() {
-      bank.deposit(1000, '10-01-2012');
-      expect( function(){ bank.withdraw(1100, '11-01-2012'); } ).toThrow(new Error("Insufficient funds! Current balance is: 1000"));
+      bank.deposit(1000);
+      expect( function(){ bank.withdraw(1100); } ).toThrow(new Error("Insufficient funds! Current balance is: 1000"));
     })
   })
 
