@@ -38,4 +38,4 @@ To run tests
 $ open SpecRunner.html
 ```
 
-![img](/img/screenshot2.png)
+![img](/img/screenshot_small.png)
