@@ -20,7 +20,7 @@ $ open index.html
 ```
 Create a new bank, passing Printer, History and Date
 ```javascript
-var bank = new Bank(Printer, History);
+var bank = new Bank(Printer, History, Date);
 ```
 To deposit and withdraw money, pass in the amount
 ```javascript
