@@ -18,7 +18,7 @@ $ git clone https://github.com/cazwazacz/bank-tech-test.git
 $ cd bank-tech-test
 $ open index.html
 ```
-Create a new bank, passing Printer and History
+Create a new bank, passing Printer, History and Date
 ```javascript
 var bank = new Bank(Printer, History);
 ```
@@ -38,4 +38,4 @@ To run tests
 $ open SpecRunner.html
 ```
 
-![img](/img/screenshot1.png)
+![img](/img/screenshot2.png)
